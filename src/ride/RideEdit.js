@@ -3,7 +3,7 @@ import APIURL from '../helpers/environment';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
 import moment from 'moment';
 
-const WorkoutEdit = (props) => {
+const RideEdit = (props) => {
 
   const [editDate, setEditDate] = useState(props.workoutToUpdate.date);
   const [editActivity, setEditActivity] = useState(props.workoutToUpdate.activity);
@@ -12,7 +12,7 @@ const WorkoutEdit = (props) => {
 
   let tryDate = new Date(editDate)
 
-  const workoutUpdate = (event) => {
+  const rideUpdate = (event) => {
     // console.log('workout', workout);
     event.preventDefault();
     fetch(`${APIURL}log/${props.workoutToUpdate.id}`, {
@@ -38,7 +38,7 @@ const WorkoutEdit = (props) => {
     <Modal isOpen={true}>
       <ModalHeader>Log a Workout</ModalHeader>
       <ModalBody>
-        <Form onSubmit={workoutUpdate}>
+        <Form onSubmit={rideUpdate}>
           <FormGroup>
             <Label htmlFor="date">Edit Date:</Label>
             <Input name="date" type="date" value={moment(tryDate).format('YYYY-MM-DD')} onChange={(e) => setEditDate(e.target.valueAsDate)}/>

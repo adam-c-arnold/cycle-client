@@ -4,7 +4,7 @@ import { Table, Button } from 'reactstrap';
 
 const RideTable = (props) => {
   const deleteRide = (ride) => {
-    fetch(`${APIURL}log/${workout.id}`, {
+    fetch(`${APIURL}log/${ride.id}`, {
         method: 'DELETE', 
         headers: new Headers({
             'Content-Type': 'application/json',

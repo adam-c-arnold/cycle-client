@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import APIURL from '../helpers/environment';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-const WorkoutCreate = (props) => {
+const RideCreate = (props) => {
   const [date, setDate] = useState('');
   const [activity, setActivity] = useState('');
   const [duration, setDuration] = useState('');

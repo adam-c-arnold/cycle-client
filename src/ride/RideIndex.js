@@ -5,7 +5,7 @@ import RideTable from './RideTable';
 import RideEdit from './RideEdit';
 import APIURL from '../helpers/environment';
 
-const WorkoutIndex = (props) => {
+const RideIndex = (props) => {
 
   const [ride, setRide] = useState([]);
   const [updateActive, setUpdateActive] = useState(false);
@@ -22,7 +22,7 @@ const WorkoutIndex = (props) => {
     .then( (res) => res.json())
     .then((logData) => {
       console.log(logData.logs)
-      setWorkouts(logData.logs)
+      setRide(logData.logs)
     })
   };
 
@@ -40,7 +40,7 @@ const WorkoutIndex = (props) => {
   }
 
   useEffect(() => {
-    fetchWorkouts();
+    fetchRide();
   }, [])
 
   console.log(ride)
@@ -53,7 +53,7 @@ const WorkoutIndex = (props) => {
           <RideCreate fetchRide={fetchRide} token={props.token} />
         </Col>
         <Col md="9">
-          {(workouts.length) ? <RideTable ride={ride} editUpdateRide={editUpdateRide} updateOn={updateOn} fetchRide={fetchRide} token={props.token}/> : <h1>Log a ride!</h1>}
+          {(ride.length) ? <RideTable ride={ride} editUpdateRide={editUpdateRide} updateOn={updateOn} fetchRide={fetchRide} token={props.token}/> : <h1>Log a ride!</h1>}
         </Col>
         {updateActive ? <RideEdit rideToUpdate={rideToUpdate} updateOff={updateOff} token={props.token} fetchRide={fetchRide} /> : <div></div>}
       </Row>
