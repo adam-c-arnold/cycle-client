@@ -39,7 +39,7 @@ const RideCreate = (props) => {
 
   return(
     <div>
-      <h3>Log a Workout</h3>
+      <h3>LOG A RIDE</h3>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <Label htmlFor="date"/>

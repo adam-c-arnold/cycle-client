@@ -56,7 +56,7 @@ const RideTable = (props) => {
 
     return (
         <div>
-            <h3>Ride History</h3>
+            <h3>RIDE HISTORY</h3>
             <hr />
             <Table striped>
                 <thead>
@@ -64,7 +64,7 @@ const RideTable = (props) => {
                         <th>Date</th>
                         <th>Activity</th>
                         <th>Duration</th>
-                        <th>What did you enjoy?</th>
+                        <th>Tell us more</th>
                     </tr>
                 </thead>
                 <tbody>{rideMapper()}</tbody>

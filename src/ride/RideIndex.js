@@ -64,7 +64,7 @@ const RideIndex = (props) => {
                             token={props.sessionToken}
                             fetchRide={fetchRide}
                         />{" "}
-                        : <h1>Log a workout!</h1>} />
+                    
                     </Col>
                     <Col md='9'>
                         {rides.length ? (

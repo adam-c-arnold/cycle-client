@@ -36,7 +36,7 @@ const RideEdit = (props) => {
   }
   return(
     <Modal isOpen={true}>
-      <ModalHeader>Log a Workout</ModalHeader>
+      <ModalHeader>Log a Ride</ModalHeader>
       <ModalBody>
         <Form onSubmit={rideUpdate}>
           <FormGroup>
