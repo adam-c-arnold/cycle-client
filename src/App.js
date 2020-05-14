@@ -26,7 +26,7 @@ function App() {
   };
 
   const protectedView = () => {
-    return (sessionToken === localStorage.getItem('token') ? <RideIndex token={sessionToken} /> : <Auth updateToken={updateToken} />)
+    return (sessionToken === localStorage.getItem('token') ? <RideIndex sessionToken={sessionToken} /> : <Auth updateToken={updateToken} />)
   }
 
   return (

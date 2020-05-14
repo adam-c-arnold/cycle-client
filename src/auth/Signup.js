@@ -10,7 +10,8 @@ const Signup = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch(`${APIURL}user/api/createuser`, { 
+    console.log('test hit')
+    fetch(`${APIURL}/user/createuser`, { 
       method: 'POST',
       body: JSON.stringify({user:
         {
@@ -26,8 +27,8 @@ const Signup = (props) => {
     }).then(
         (response) => response.json()
     ).then((data) => {
-      console.log('data', data, 'sessionToken', data.token)
-      props.updateToken(data.token)
+      console.log('data', data, 'sessionToken', data.sessionToken)
+      props.updateToken(data.sessionToken)
     })
   }
 

@@ -5,18 +5,18 @@ import moment from 'moment';
 
 const RideEdit = (props) => {
 
-  const [editDate, setEditDate] = useState(props.workoutToUpdate.date);
-  const [editActivity, setEditActivity] = useState(props.workoutToUpdate.activity);
-  const [editDuration, setEditDuration] = useState(props.workoutToUpdate.duration);
-  const [editNotes, setEditNotes] = useState(props.workoutToUpdate.notes);
+  const [editDate, setEditDate] = useState(props.rideToUpdate.date);
+  const [editActivity, setEditActivity] = useState(props.rideToUpdate.activity);
+  const [editDuration, setEditDuration] = useState(props.rideToUpdate.duration);
+  const [editNotes, setEditNotes] = useState(props.rideToUpdate.notes);
 
   let tryDate = new Date(editDate)
 
   const rideUpdate = (event) => {
     // console.log('workout', workout);
     event.preventDefault();
-    fetch(`${APIURL}log/${props.workoutToUpdate.id}`, {
-      method: 'PUT',
+    fetch(`${APIURL}/log/${props.rideToUpdate.id}`, {
+      method:'PUT',
       body: JSON.stringify({
         log: {
           date: editDate, 
@@ -25,12 +25,12 @@ const RideEdit = (props) => {
           notes: editNotes
         }
       }),
-      headers: new Headers({
+      headers: {
         'Content-Type': 'application/json',
-        'Authorization': props.token
-      })
-      }) .then((res) => {
-        props.fetchWorkouts();
+        'Authorization': props.sessionToken
+      }
+      }).then((res) => {
+        props.fetchRide();
         props.updateOff();
       })
   }
@@ -47,11 +47,11 @@ const RideEdit = (props) => {
             <Label htmlFor="activity">Edit Activity:</Label>
             <Input type="select" name="activity" value={editActivity} onChange={(e) => setEditActivity(e.target.value)}>
             <option>Select an activity</option>
-            <option value="Gardening">Gardening</option>
-            <option value="Horse Riding">Horse Riding</option>
-            <option value="Swimming">Swimming</option>
+            <option value="Cycling">Cycling</option>
+            <option value="Gym">Gym</option>
+            <option value="Swim">Swim</option>
             <option value="Walk">Walk</option>
-            <option value="Yoga">Yoga</option>
+            <option value="Run">Run</option>
             <option value="Other">Other</option>
             </Input>
           </FormGroup>
